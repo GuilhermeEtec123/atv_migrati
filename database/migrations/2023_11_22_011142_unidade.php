@@ -11,7 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('unidade', function (Blueprint $table) {
+            $table->id();
+            $table->string('unidade');
+            $table->text('descricao')->nullable();
+        });
     }
 
     /**
@@ -19,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('unidade');
     }
 };

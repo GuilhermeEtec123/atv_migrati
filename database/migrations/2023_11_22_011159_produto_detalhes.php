@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('produto_detalhes', function (Blueprint $table) {
+            $table->id();
+            $table->decimal('comprimento', 10, 2);
+            $table->decimal('largura', 10, 2);
+            $table->decimal('altura', 10, 2);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('produto_detalhes');
     }
 };

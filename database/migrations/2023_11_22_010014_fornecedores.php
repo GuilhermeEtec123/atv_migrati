@@ -11,7 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('fornecedores', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->string('site');
+            $table->string('uf');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+        });
     }
 
     /**
@@ -19,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('fornecedores');
     }
 };
